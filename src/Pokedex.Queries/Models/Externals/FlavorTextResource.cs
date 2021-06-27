@@ -1,4 +1,6 @@
+using System;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
 namespace Pokedex.Queries.Models.Externals
 {
@@ -13,6 +15,6 @@ namespace Pokedex.Queries.Models.Externals
         public NamedAPIResource Language { get; }
 
         public FlavorTextResource(string flavorText, NamedAPIResource language) 
-            => (FlavorText, Language) = (flavorText, language);
+            => (FlavorText, Language) = (Regex.Replace(flavorText ?? string.Empty, "\n|\f", string.Empty), language);
     }
 }
