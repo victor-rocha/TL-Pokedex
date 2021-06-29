@@ -11,6 +11,7 @@ A "True" Pokedex using an API "Layer"
 ### How to run
 
 **Clone the repo** 
+
 First of all, let's clone the repo. 
 You can do it via [Git](https://git-scm.com/) or simply downloading the [source code directly from GitHub](https://github.com/victor-rocha/TL-Pokedex)
 
@@ -39,11 +40,11 @@ You can do it via [Git](https://git-scm.com/) or simply downloading the [source 
 I usually like to try new things while doing home assignments like this. It allows me to try something new outside of my working hours and learning a bit more :)
 
 This time around, I used [Hexagonal Architecture](https://blog.octo.com/en/hexagonal-architecture-three-principles-and-an-implementation-example/) as I was reading in some blogs. 
-All the business logic are under `Pokedex.Domain` and the external queries (or outputs) are under `Pokedex.Queries.
+All the business logic are under `Pokedex.Domain` and the external queries (or outputs) are under `Pokedex.Queries`.
 
 Moreover, another new stuff I've found was [Refit](https://github.com/reactiveui/refit) for creating the HttpClient for the external providers, and decided to use as well. 
 
-## Things I'd do for a production API
+## Things I'd do for a production API / Things to be improved
 
 I tried to keep as simple as possible due to time constraints and, of course, this being a home assignment a not a fully production-ready API. 
 I've listed a few things that I would implement if we would deploy to production:
@@ -53,8 +54,8 @@ I've listed a few things that I would implement if we would deploy to production
 - Add some circuit-break/retry policy for the third party APIs. Something with [Polly](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly) would improve handling with errors, small timeouts, too many requests, etc. 
 - Probably add an API versioning too depending on use-case. 
 - Add some more logs throughout the application. Possibly implement a middleware that could help with that too.
-- Add some tracing and observability (o11y) for incoming and outcoming requests and responses. 
+- Add some tracing and observability (o11y) for incoming and outgoing requests and responses. 
 - For dev/staging environment we could create a mocking service using [WireMock](http://wiremock.org/) so we don't rely on third parties for the external API responses. That would help development and testing across. 
-
+- Improve and add more tests. Most of the unit tests cases were done but I would add some Integration Tests covering "real" API requests and responses.
 
 
