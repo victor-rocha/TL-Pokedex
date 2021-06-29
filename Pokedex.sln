@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokedex.Domain", "src\Poked
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokedex.Queries", "src\Pokedex.Queries\Pokedex.Queries.csproj", "{728FE89D-BF6F-4215-A750-FBE1219EAA49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokedex.UnitTests", "src\Pokedex.UnitTests\Pokedex.UnitTests.csproj", "{529F5A40-82D8-4B21-9EB7-AB0661CA0290}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,10 +28,15 @@ Global
 		{728FE89D-BF6F-4215-A750-FBE1219EAA49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{728FE89D-BF6F-4215-A750-FBE1219EAA49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{728FE89D-BF6F-4215-A750-FBE1219EAA49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529F5A40-82D8-4B21-9EB7-AB0661CA0290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529F5A40-82D8-4B21-9EB7-AB0661CA0290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529F5A40-82D8-4B21-9EB7-AB0661CA0290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529F5A40-82D8-4B21-9EB7-AB0661CA0290}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8F7FFB69-692E-4568-95FD-0366B4492BC8} = {0474DFEF-C48E-4E13-A99B-9EC01F864678}
 		{E5E3D6A4-8A40-42A2-A4DB-E7D969B273F3} = {0474DFEF-C48E-4E13-A99B-9EC01F864678}
 		{728FE89D-BF6F-4215-A750-FBE1219EAA49} = {0474DFEF-C48E-4E13-A99B-9EC01F864678}
+		{529F5A40-82D8-4B21-9EB7-AB0661CA0290} = {0474DFEF-C48E-4E13-A99B-9EC01F864678}
 	EndGlobalSection
 EndGlobal
