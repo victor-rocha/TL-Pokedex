@@ -19,11 +19,18 @@ namespace Pokedex
         {
             services.AddTransient<BasicPokemonFetcher>();
             services.AddTransient<IPokemonQuery, PokemonQuery>();
+            services.AddTransient<TranslatedPokemonFetcher>();
+            services.AddTransient<IPokemonTranslationQuery, PokemonTranslationQuery>();
+
             services.AddRefitClient<IPokeApiClient>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://pokeapi.co/api"));
-            
-            // A singleton cache service would be added here. 
-            
+
+            services
+                .AddRefitClient<IFunTranslationsApiClient>()
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://api.funtranslations.com"));
+
+            // A singleton cache service would be added here. One for the basic info and another one for the translations (depending on the strategy)
+
             services.AddControllers();
             services.AddSwaggerGen(
                 c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "Pokedex.API", Version = "v1"}); });

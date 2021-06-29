@@ -23,6 +23,7 @@ I've listed a few things that I would implement if we would deploy to production
 - I'm filtering out English descriptions but I suppose we could make this more open. 
 - Add some circuit-break/retry policy for the third party APIs. Something with [Polly](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly) would improve handling with errors, small timeouts, too many requests, etc. 
 - Probably add an API versioning too depending on use-case. 
+- Add some more logs throughout the application. Possibly implement a middleware that could help with that too.
 
 
 

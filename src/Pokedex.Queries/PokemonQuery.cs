@@ -27,6 +27,9 @@ namespace Pokedex.Queries
                 // Before we search for the pokemon using PokeApi, we could search in the cache
                 // i.e await _cache.TryGet(pokemonName);
                 var pokemonSpecie = await _pokeApiClient.GetSpecie(pokemonName);
+                // We would add to the cache after the response was sucessfull. 
+                // i.e await _cache.TrySet(pokemonName, pokemonSpecie);
+                
                 return pokemonSpecie;
             }
             catch (Refit.ApiException)

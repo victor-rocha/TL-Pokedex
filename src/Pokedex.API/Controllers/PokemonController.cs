@@ -11,9 +11,13 @@ namespace Pokedex.Controllers
     public sealed class PokemonController : ControllerBase
     {
         private readonly BasicPokemonFetcher _basicPokemonFetcher;
-        public PokemonController(BasicPokemonFetcher basicPokemonFetcher)
+        private readonly TranslatedPokemonFetcher _translatedPokemonFetcher;
+
+        public PokemonController(BasicPokemonFetcher basicPokemonFetcher,
+            TranslatedPokemonFetcher translatedPokemonFetcher)
         {
             _basicPokemonFetcher = basicPokemonFetcher;
+            _translatedPokemonFetcher = translatedPokemonFetcher;
         }
 
         /// <summary>
@@ -27,10 +31,10 @@ namespace Pokedex.Controllers
         public async Task<IActionResult> Get([FromRoute] string pokemonName)
         {
             var basicPokemonInfo = await _basicPokemonFetcher.GetPokemonInfo(pokemonName.ToLower());
-            
-            if (basicPokemonInfo == null)
+
+            if (basicPokemonInfo is null)
                 return NotFound();
-            
+
             return Ok(basicPokemonInfo);
         }
 
@@ -39,10 +43,17 @@ namespace Pokedex.Controllers
         /// </summary>
         /// <param name="pokemonName">Pokemon's name</param>
         /// <returns></returns>
-        [HttpGet("{pokemonName}/translated")]
+        [HttpGet("translated/{pokemonName}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TranslatedPokemon))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetTranslated([FromRoute] string pokemonName)
         {
-            return null;
+            var translatedPokemon = await _translatedPokemonFetcher.GetTranslatedPokemon(pokemonName.ToLower());
+
+            if (translatedPokemon is null)
+                return NotFound();
+
+            return Ok(translatedPokemon);
         }
     }
 }
