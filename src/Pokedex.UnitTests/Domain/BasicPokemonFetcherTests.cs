@@ -17,11 +17,11 @@ namespace Pokedex.UnitTests.Domain
         {
             // Arrange
             var pokemonSpecies = new PokemonSpecies("", new NamedAPIResource("", ""), new List<FlavorTextResource>(), true);
-            var pokeApiClient = new Mock<IPokeApiClient>();
-            pokeApiClient.Setup(c => c.GetSpecie(It.IsAny<string>()))
+            var pokeApiClientMock = new Mock<IPokeApiClient>();
+            pokeApiClientMock.Setup(c => c.GetSpecie(It.IsAny<string>()))
                 .ReturnsAsync(pokemonSpecies);
 
-            var pokemonQuery = new PokemonQuery(pokeApiClient.Object, NullLogger<PokemonQuery>.Instance);
+            var pokemonQuery = new PokemonQuery(pokeApiClientMock.Object, NullLogger<PokemonQuery>.Instance);
 
             // Act
             var result = await pokemonQuery.Get("mew");
@@ -29,25 +29,25 @@ namespace Pokedex.UnitTests.Domain
             // Assert
             Assert.NotNull(result);
             Assert.Equal(pokemonSpecies, result);
-            pokeApiClient.Verify(c => c.GetSpecie("mew"), Times.Once);
+            pokeApiClientMock.Verify(c => c.GetSpecie("mew"), Times.Once);
         }
 
         [Fact]
         public async Task PokemonQuery_Get_ReturnsNull_When_ExceptionIsThrown()
         {
             // Arrange
-            var apiClient = new Mock<IPokeApiClient>();
-            apiClient.Setup(c => c.GetSpecie(It.IsAny<string>()))
+            var pokeApiClientMock = new Mock<IPokeApiClient>();
+            pokeApiClientMock.Setup(c => c.GetSpecie(It.IsAny<string>()))
                 .ThrowsAsync(new WebException());
 
-            var query = new PokemonQuery(apiClient.Object, NullLogger<PokemonQuery>.Instance);
+            var query = new PokemonQuery(pokeApiClientMock.Object, NullLogger<PokemonQuery>.Instance);
 
             // Act
             var result = await query.Get("mew");
 
             // Assert
             Assert.Null(result);
-            apiClient.Verify(c => c.GetSpecie("mew"), Times.Once);
+            pokeApiClientMock.Verify(c => c.GetSpecie("mew"), Times.Once);
         }
     }
 }
