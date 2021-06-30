@@ -25,4 +25,10 @@
       <ProjectReference Include="..\Pokedex.Queries\Pokedex.Queries.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Helpers\mew-response-example.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

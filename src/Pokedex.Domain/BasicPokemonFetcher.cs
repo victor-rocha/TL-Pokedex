@@ -24,7 +24,7 @@ namespace Pokedex.Domain
         public async Task<BasicPokemon> GetPokemonInfo(string pokemonName)
         {
             var pokemonSpecies = await _pokemonQuery.Get(pokemonName);
-            if (pokemonSpecies == null)
+            if (pokemonSpecies is null)
                 return default;
 
             // Filtering out english description. 

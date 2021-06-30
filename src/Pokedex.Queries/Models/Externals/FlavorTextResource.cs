@@ -14,6 +14,6 @@ namespace Pokedex.Queries.Models.Externals
         public NamedAPIResource Language { get; }
 
         public FlavorTextResource(string flavorText, NamedAPIResource language) 
-            => (FlavorText, Language) = (Regex.Replace(flavorText ?? string.Empty, "\n|\f", string.Empty), language);
+            => (FlavorText, Language) = (Regex.Replace(flavorText ?? string.Empty, "\n|\f", " "), language);
     }
 }

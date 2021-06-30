@@ -1,5 +1,5 @@
 # TL-Pokedex
-A "True" Pokedex using an API "Layer"
+A "True" Pokedex using an API "Layer" 🙃
 
 ## Prerequisites
 
@@ -21,20 +21,20 @@ You can do it via [Git](https://git-scm.com/) or simply downloading the [source 
 
 - Just simply navigate to `TL-Pokedex` and open `Pokedex.sln` file. 
 - Hit 'Run' or 'Debug'
-- Then navigate `https://localhost:5001/swagger/index.html` to use the API via [Swagger](https://swagger.io/)
+- Then please navigate to `https://localhost:5001/swagger/index.html` to use the API via [Swagger](https://swagger.io/)
 
 2. Via `dotnet cli`
 
 - Navigate to `TL-Pokedex/src/Pokedex.API` 
 - Run `dotnet run --configuration Release --project Pokedex.API.csproj`
-- Open your browser and navigate to `http://localhost:5000/swagger/index.html` to use the API via [Swagger](https://swagger.io/)
+- Open your browser and please navigate to `http://localhost:5000/swagger/index.html` to use the API via [Swagger](https://swagger.io/)
 
 3. Via Docker
 
 - Navigate to `TL-Pokedex`
 - Run `docker build -t pokedex .`
 - Then run `docker run -p 8080:80 pokedex`
-- Last navigate to `http://localhost:8080/swagger/index.html` to use the API via [Swagger](https://swagger.io/)
+- Last but not least, please navigate to `http://localhost:8080/swagger/index.html` to use the API via [Swagger](https://swagger.io/)
 
 ## Development decisions
 I usually like to try new things while doing home assignments like this. It allows me to try something new outside of my working hours and learning a bit more :)
